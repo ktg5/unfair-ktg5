@@ -24,7 +24,7 @@ body {
     width: 35px;
     height: 70px;
     background: red;
-    left: 15%;
+    left: 300px;
     top: 30%;
     z-index: 10;
 }

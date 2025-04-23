@@ -2,14 +2,12 @@ var latency, lastKeyPress;
 var currentKeys = {};
 // Handle keys
 async function handleKeys(keys) {
-    let currentTop = playerDiv.offsetTop;
-    let currentLeft = playerDiv.offsetLeft;
-
     for (let key in keys) {
         switch (key.toLowerCase()) {
             case 'arrowup':
             case 'w':
-                playerAction('jump');
+            case ' ':
+                playerAction({ type: 'jump' });
             break;
             case 'arrowdown':
             case 's':
@@ -17,13 +15,11 @@ async function handleKeys(keys) {
             break;
             case 'arrowleft':
             case 'a':
-                if (currentLeft > 0) {
-                    playerDiv.style.left = currentLeft - 1 + 'px';
-                }
+                playerAction({ type: 'move', value: '-1' });
             break;
             case 'arrowright':
             case 'd':
-                playerDiv.style.left = currentLeft + 1 + 'px';
+                playerAction({ type: 'move', value: '1' });
             break;
         }
     }
